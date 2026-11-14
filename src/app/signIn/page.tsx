@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const inputClass =
   'w-full border border-gray-300 rounded px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500';
@@ -92,6 +92,13 @@ export default function LoginPage() {
           >
             <FaGoogle />
             Continue with Google
+          </button>
+          <button
+            onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
+            className="w-full bg-gray-800 text-white py-2 px-4 rounded hover:bg-black transition flex items-center justify-center gap-2"
+          >
+            <FaGithub />
+            Continue with GitHub
           </button>
         </div>
 
